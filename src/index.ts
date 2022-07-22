@@ -1,13 +1,6 @@
 import { NFTStorage, File, Blob } from 'nft.storage'
 require('dotenv').config();
 import * as fs from 'fs';
-import * as path from 'path';
-import { error } from 'console';
-const ethers = require('ethers');
-const axios = require("axios");
-
-const { readdirSync, rename } = require('fs');
-const { resolve } = require('path');
 
 // Environment Variables
 const NFT_STORAGE_TOKEN:string = process.env.API_KEY ? process.env.API_KEY : '';
@@ -30,7 +23,7 @@ async function uploadImages(){
 
     const cid = await client.storeDirectory(imageArray);
 
-    console.log(cid);
+    console.log('--> imageCid : ',cid);
 
     return cid;
 }
@@ -49,7 +42,7 @@ async function uploadVideos(){
 
     const cid = await client.storeDirectory(videoArray);
 
-    console.log(cid);
+    console.log('--> videoCid : ',cid);
 
     return cid;
 }
@@ -74,7 +67,7 @@ async function updateMetaDataFiles(imageCid : string, videoCid:string){
 
     const metaDataCid = await client.storeDirectory(MetaDataArray);
 
-    console.log(metaDataCid);
+    console.log('--> metaDataCid : ',metaDataCid);
 
     return metaDataCid;
 }

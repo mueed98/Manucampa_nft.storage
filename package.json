@@ -1,5 +1,5 @@
 {
-  "name": "typescript-starter",
+  "name": "ManuCampa_NFT_Storage",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -19,8 +19,6 @@
   "dependencies": {
     "compress-images": "^2.0.5",
     "dotenv": "^16.0.0",
-    "ethers": "^5.6.4",
-    "moralis": "^1.5.9",
     "nft.storage": "^6.4.1"
   }
 }
