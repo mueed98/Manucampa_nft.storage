@@ -15,9 +15,6 @@ async function uploadImages(){
 
     for (let i = 0; i < FILE_COUNT; i++) {
         let readFiledata = await fs.readFileSync(`${__dirname}/images/${i}.png`);
-        let temp1 = readFiledata.toString('hex'); 
-        let base64String = Buffer.from(temp1, 'hex').toString('base64')
-
         imageArray.push(new File([readFiledata],`${i}.png`, {type:"image/png"}));
     }
 
@@ -34,9 +31,6 @@ async function uploadVideos(){
 
     for (let i = 0; i < FILE_COUNT; i++) {
         let readFiledata = await fs.readFileSync(`${__dirname}/videos/${i}.mp4`);
-        //let temp1 = readFiledata.toString('hex'); 
-        //let base64String = Buffer.from(temp1, 'hex').toString('base64')
-
         videoArray.push(new File([readFiledata],`${i}.mp4`, {type:"video/mp4"}));
     }
 
@@ -72,17 +66,16 @@ async function updateMetaDataFiles(imageCid : string, videoCid:string){
     return metaDataCid;
 }
 
-
 async function bootstrap() {
 
-    const videoCid = 'bafybeighl4prtso6io6negnn3szgejbieyuvk2e6tb3u42rqpdouawwqze';
-    const imageCid = 'bafybeicw4k46vpqxqlalb3gpazlmrfpgz2huuow5prlkek5pjaqbltp25m';
+    // const videoCid = 'bafybeighl4prtso6io6negnn3szgejbieyuvk2e6tb3u42rqpdouawwqze';
+    // const imageCid = 'bafybeicw4k46vpqxqlalb3gpazlmrfpgz2huuow5prlkek5pjaqbltp25m';
 
     // const imageCid = await uploadImages();
     // const videoCid = await uploadVideos();
     
-    await updateMetaDataFiles(imageCid, videoCid);
-    console.log('--- Complete ---');
+    // await updateMetaDataFiles(imageCid, videoCid);
+    // console.log('--- Complete ---');
 }
 
 
